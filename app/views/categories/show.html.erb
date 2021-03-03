@@ -1,4 +1,9 @@
-<p id="notice"><%= notice %></p>
+<% @category.posts do |category| %>
+  <div class="category-post">
+    <span class="post-date"><%= time_ago_in_words post.created_at %></span>
+    <span class="post-title"><%= post.title %></span>
+  </div>
+<% end %>
 
 <%= link_to 'Edit', edit_category_path(@category) %> |
 <%= link_to 'Back', categories_path %>
