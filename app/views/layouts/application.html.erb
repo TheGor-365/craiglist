@@ -10,6 +10,15 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="main">
+      <div class="main-left">
+        <p>Craiglist</p>
+
+        <%#= link_to 'Create new post', new_post_path %>
+      </div>
+      <div class="main-right">
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>

@@ -1,14 +1,11 @@
-<div class="container">
-  <div class="row">
-    <div class="col-3">
+<% @categories.each do |category| %>
+  <div class="category-box">
+    <p><strong><%= category.name %></strong></p>
 
-    </div>
-    <div class="col-9">
-      <div class="row">
-        <% @categories.each do |category| %>
-          <%= category.name %>
-        <% end %>
+    <% category.subcategories.limit(10).each do |subcategory| %>
+      <div class="subcat">
+        <%= subcategory.name %>
       </div>
-    </div>
+    <% end %>
   </div>
-</div>
+<% end %>
