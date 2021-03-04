@@ -8,6 +8,9 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100&display=swap" rel="stylesheet">
   </head>
 
   <body>
@@ -16,28 +19,28 @@
     </div>
     <p class="notice"><%= notice %></p>
 
-    <div class="main">
-      <div class="main-left">
-        <p><strong><%= link_to "Craiglist", root_path %></strong></p>
+    <div class="container">
+      <div class="row">
+        <div class="col-3">
+          <p><strong><%= link_to "Craiglist", root_path, class: 'text-dark' %></strong></p>
 
-        <p><%= link_to 'Create new post', new_post_path %><br></p>
+          <p><%= link_to 'Create new post', new_post_path, class: 'btn btn-success btn-sm' unless is_auth? %></p>
 
-        <p><%= link_to "My account", new_account_session_path unless account_signed_in? %></p>
+          <%= render 'categories/category_sidebar' if controller.controller_name == 'categories' %>
 
-        <%= render 'categories/category_sidebar' if controller.controller_name == 'categories' %>
+          <% if is_home? || is_auth? %>
+            <div class="nav-pages mt-5">
+              <p><%= link_to 'help, faqs, abuse, legal', faqs_path %></p>
+              <p><%= link_to 'avoid scams and fraud', scams_path %></p>
+              <p><%= link_to 'personal safety tips', safety_path %></p>
+              <p><%= link_to 'terms of use', terms_path %></p>
+            </div>
+          <% end %>
+        </div>
 
-        <% if is_home? %>
-          <div class="nav-pages">
-            <p><%= link_to 'help, faqs, abuse, legal', faqs_path %></p>
-            <p><%= link_to 'avoid scams and fraud', scams_path %></p>
-            <p><%= link_to 'personal safety tips', safety_path %></p>
-            <p><%= link_to 'terms of use', terms_path %></p>
-          </div>
-        <% end %>
-
-      </div>
-      <div class="main-right">
-        <%= yield %>
+        <div class="col-9">
+          <%= yield %>
+        </div>
       </div>
     </div>
   </body>
