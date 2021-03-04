@@ -1,0 +1,22 @@
+<p>
+  <%= link_to 'Home', root_path %> >>
+
+  <% if @post.present? && !@post.new_record?
+    category = @post.category
+    parent = category.parent
+  %>
+    <% if parent.present? %>
+      <%= link_to parent.name, category_path(parent) %> >>
+    <% end %>
+
+    <%= link_to category.name, category_path(category) %> >>
+    <%= @post.title %>
+  <% elsif @category.present?
+    parent = @category.parent
+  %>
+    <% if parent.present? %>
+      <%= link_to parent.name, category_path(parent) %> >>
+    <% end %>
+    <%= @category.name %>
+  <% end %>
+</p>

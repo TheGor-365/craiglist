@@ -24,6 +24,7 @@ gem 'jbuilder', '~> 2.7'
 
 # custom gems
 gem 'pg'
+gem 'devise'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
