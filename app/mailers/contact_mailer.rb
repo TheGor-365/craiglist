@@ -1,14 +1,18 @@
 class ContactMailer < ApplicationMailer
 
-  def post_enquiry(post_id, message)
+  def post_enquiry(post_id, reply_to_email, message)
     post = Post.find(post_id)
 
 
     if post.present?
-      @name = post.title
+      account = post.account
+      @post_title = post.title
       @message = message
+      @reply_to_email = reply_to_email
       # send mail to post author
-      mail(to: post.account.email, subject: "Enquiry about #{@name}")
+      if account.present?
+        mail(to: account.email, subject: "Enquiry about #{@post_title}")
+      end
     end
   end
 
