@@ -10,7 +10,7 @@ class CategoriesController < ApplicationController
   def show
     category_ids = @category.subcategories.ids
     category_ids << @category.id
-    
+
     @posts = Post.where(category_id: category_ids)
   end
 
@@ -63,7 +63,7 @@ class CategoriesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_category
-      @category = Category.find(params[:id])
+      @category = Category.find_by_url(params[:url])
     end
 
     # Only allow a list of trusted parameters through.

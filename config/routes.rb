@@ -4,12 +4,14 @@ Rails.application.routes.draw do
   root to: 'public#home'
 
   resources :posts, expect: [:index]
-  resources :categories
+  resources :categories, expect: [:show]
 
   get '/faqs' => 'public#faqs', as: :faqs
   get '/scams' => 'public#scams', as: :scams
   get '/terms' => 'public#terms', as: :terms
   get '/safety' => 'public#safety', as: :safety
+
   get '/dashboard' => 'accounts#dashboard', as: :dashboard
+  get 'c/:url' => 'categories#show', as: :show_category
 
 end
