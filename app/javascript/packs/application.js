@@ -10,6 +10,7 @@ require("channels")
 
 import 'bootstrap'
 import '../stylesheets/application'
+import '../packs/includes/posts'
 
 global.toastr = require("toastr")
 

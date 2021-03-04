@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   get '/dashboard' => 'accounts#dashboard', as: :dashboard
   get 'c/:url' => 'categories#show', as: :show_category
 
+  post 'message/send' => 'public#send_enquiry_to_user', as: :send_enquiry
+
 end
