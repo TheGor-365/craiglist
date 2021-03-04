@@ -1,0 +1,19 @@
+<h1>Posts</h1>
+
+<div class="row mt-4">
+  <div class="col">
+    <% @posts.each do |post| %>
+      <div class="row">
+        <div class="col-6">
+          <%= link_to post.title, post_path(post) %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <small class="text-muted"><%= post.content %></small>
+        </div>
+      </div>
+      <hr>
+    <% end %>
+  </div>
+</div>

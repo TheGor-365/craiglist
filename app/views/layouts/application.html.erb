@@ -14,15 +14,15 @@
   </head>
 
   <body>
-    <div class="header">
-      <%= render 'layouts/breadcrumb_nav' %>
-    </div>
 
     <div class="container">
       <div class="row">
         <div class="col-3">
           <%= toastr_flash %>
-          <p><strong><%= link_to "Craiglist", root_path, class: 'text-dark' %></strong></p>
+
+          <%= link_to root_path, class: 'text-dark' do %>
+            <%= image_tag('2662183.jpg', width: '200px', class: 'mt-3 mb-4') %>
+          <% end %>
 
           <p><%= link_to 'Create new post', new_post_path, class: 'btn btn-success btn-sm' unless is_auth? %></p>
 
@@ -39,6 +39,11 @@
         </div>
 
         <div class="col-9">
+
+          <div id="header">
+            <%= render 'layouts/breadcrumb_nav' %>
+          </div>
+
           <%= yield %>
         </div>
       </div>
