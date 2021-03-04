@@ -12,7 +12,7 @@
   <body>
     <div class="main">
       <div class="main-left">
-        <p>Craiglist</p>
+        <p><strong><%= link_to "Craiglist", root_path %></strong></p>
 
         <%= render 'categories/category_sidebar' if controller.controller_name == 'categories' %>
 

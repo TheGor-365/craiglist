@@ -1,4 +1,12 @@
-<p id="notice"><%= notice %></p>
+<a href="javascript:document.print()" class="print-post">Print</a>
+<a href="#">Reply</a>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<span class="posted-at-top">Posted <%= time_ago_in_words @post.created_at %> ago</span>
+
+<h1><%= @post.title %></h1>
+<%= simple_format @post.content %>
+
+<p class="post-meta">
+  <span class="post-id">Post id: <%= @post.id.to_s %></span>
+  <span class="posted-at">Posted <%= time_ago_in_words @post.created_at %> ago</span>
+</p>
