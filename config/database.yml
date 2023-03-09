@@ -24,4 +24,4 @@ test:
 
 production:
   <<: *default
-  database: craiglist-production
+  url: <%= ENV['DATABASE_URL'] %>
