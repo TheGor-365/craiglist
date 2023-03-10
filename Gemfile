@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.8'
+ruby '2.7.0'
 
 gem 'rails', '~> 6.0.3', '>= 6.0.3.5'
 gem 'puma'
@@ -13,6 +13,10 @@ gem 'pg'
 gem 'devise'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootsnap'
+gem "net-http"
+gem "net-smtp"
+gem "net-imap"
+gem "uri"
 
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
@@ -32,4 +36,3 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
-
